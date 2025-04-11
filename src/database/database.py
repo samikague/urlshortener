@@ -5,10 +5,15 @@ from sqlalchemy.pool import NullPool
 
 from .models import Base
 
+<<<<<<< HEAD
 
 DATABASE_URL = "sqlite+aiosqlite://database.db"
 
 
+=======
+DATABASE_URL = "sqlite+aiosqlite://database.db"
+
+>>>>>>> refs/remotes/origin/master
 engine = create_async_engine(
     DATABASE_URL,
     echo=True,

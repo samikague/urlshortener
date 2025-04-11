@@ -5,17 +5,17 @@ from sqlalchemy.pool import NullPool
 
 from .models import Base
 
-# URL базы данных
+
 DATABASE_URL = "sqlite+aiosqlite://database.db"
 
-# Создаем асинхронный движок
+
 engine = create_async_engine(
     DATABASE_URL,
-    echo=True,  # Включаем логирование SQL-запросов
-    poolclass=NullPool  # Используем NullPool для асинхронной работы
+    echo=True,
+    poolclass=NullPool
 )
 
-# Создаем фабрику сессий
+
 async_session = async_sessionmaker(
     engine,
     class_=AsyncSession,

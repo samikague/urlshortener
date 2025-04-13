@@ -6,3 +6,18 @@ _ FastAPI
 _ Alembic
 - SQLite(with aiosqlite) / I was too lazy to do it on postgresql
 - the list will be expanded btw
+
+  
+<b>Running</b>:
+
+1. Default
+
+```bash
+python3 main.py
+```
+
+2. With docker(in project root-directory)
+
+```bash
+docker build -t urlshortener . | docker run -p 8000:8000 urlshortner
+```

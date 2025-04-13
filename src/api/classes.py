@@ -1,4 +1,4 @@
 from pydantic import BaseModel
 
 class ShortUrl(BaseModel):
-    url: str
+    original_url: str

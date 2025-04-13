@@ -11,5 +11,6 @@ class ShortUrl(BaseModel):
     __tablename__ = "urls"
 
     id = Column(Integer, primary_key=True)
+    control_token = Column(String(256), nullable=False)
     original_url = Column(String(2048), nullable=False)
     short_code = Column(String(10), unique=True, index=True, nullable=False)

@@ -1,25 +1,16 @@
+from loguru import logger
 from typing import AsyncGenerator
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sessionmaker
-from sqlalchemy.orm import sessionmaker
 from sqlalchemy.pool import NullPool
 
 from .models import Base
 
-<<<<<<< HEAD
+DATABASE_URL = "sqlite+aiosqlite:///./database.db"
 
-DATABASE_URL = "sqlite+aiosqlite://database.db"
-
-
-=======
-DATABASE_URL = "sqlite+aiosqlite://database.db"
-
->>>>>>> refs/remotes/origin/master
 engine = create_async_engine(
     DATABASE_URL,
-    echo=True,
     poolclass=NullPool
 )
-
 
 async_session = async_sessionmaker(
     engine,
@@ -27,6 +18,7 @@ async_session = async_sessionmaker(
     expire_on_commit=False
 )
 
-async def init_db() -> None:
+async def init_db():
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
+        logger.success("Database initialized")

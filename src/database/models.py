@@ -5,14 +5,11 @@ from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 
 class BaseModel(Base):
-    None
+    __abstract__ = True
 
 class ShortUrl(BaseModel):
-    """Модель для хранения сокращенных URL"""
-    __tablename__ = "short_urls"
+    __tablename__ = "urls"
 
+    id = Column(Integer, primary_key=True)
     original_url = Column(String(2048), nullable=False)
     short_code = Column(String(10), unique=True, index=True, nullable=False)
-    is_active = Column(Boolean, default=True)
-    clicks = Column(Integer, default=0)
-    expires_at = Column(DateTime, nullable=True)

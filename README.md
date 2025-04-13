@@ -1,4 +1,5 @@
-UrlShortener - Yet another pet project. I want to study alembic in more detail in conjunction with sqlalchemy and fastapi
+# UrlShortener - Yet another pet project.
+I want to study alembic in more detail in conjunction with sqlalchemy and fastapi
 
 Used in this project:
 - SQLAlchemy
@@ -20,4 +21,20 @@ python3 main.py
 
 ```bash
 docker build -t urlshortener . | docker run -p 8000:8000 urlshortner
+```
+
+
+
+# Roadmap:
+
+VERSION 1
+```
+- Add more functionality (in process) (V1)
+- Finish the project (V1)
+```
+
+VERSION 2
+
+```
+- Rewrite the project to the structure of several docker images under kubernetes management (V2)
 ```

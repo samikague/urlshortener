@@ -1,0 +1,16 @@
+[2025-04-13] - 00:31 -> 05:13
+
+A lot of work has been done on the project.
+
+1. Work on the functionality has begun.
+
+2. The alembic has been tested.
+
+3. The functionality of the main.py file has been made.
+
+4. The general structure of the project has been finally (possibly) formed.
+
+5. A Dockerfile has been written to run under Docker.
+
+6. Visual garbage has been removed from requirements.txt
+7. etc

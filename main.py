@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 import uvicorn
 from loguru import logger
+import PyRandomString
 
 from src.database.database import init_db
 from src.api.routes import router as api_router

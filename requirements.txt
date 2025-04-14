@@ -4,3 +4,4 @@ loguru==0.7.3
 SQLAlchemy==2.0.40
 starlette==0.46.1
 uvicorn==0.34.0
+pyrandomstring==0.0.6

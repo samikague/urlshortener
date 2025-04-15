@@ -6,4 +6,4 @@ loguru==0.7.3
 pydantic==2.11.3
 python-multipart==0.0.20
 alembic==1.15.2
-PyRandomString==1.0.0
+PyRandomString==0.0.6

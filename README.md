@@ -20,7 +20,7 @@ python3 main.py
 2. With docker(in project root-directory)
 
 ```bash
-docker build -t urlshortener . | docker run -p 8000:8000 urlshortner
+docker build -t samikague/urlshortener . | docker run -p 8000:8000 samikague/urlshortner
 ```
 
 

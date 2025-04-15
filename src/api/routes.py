@@ -1,8 +1,7 @@
 from fastapi import APIRouter, Request
 from fastapi.responses import RedirectResponse
-from src.database.requests import main_methods
-from .classes import ShortUrl_class, Authorize_Class
-from ..database.requests import main_methods, actions_methods
+from src.database.requests import main_methods, actions_methods
+from src.api.classes import ShortUrl_class, Authorize_Class
 
 
 

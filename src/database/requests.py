@@ -2,8 +2,8 @@ from typing import Tuple
 import PyRandomString
 from loguru import logger
 from sqlalchemy import Select, Delete, Update
-from .database import async_session
-from .models import ShortUrl
+from src.database.database import async_session
+from src.database.models import ShortUrl
 
 class main_methods:
     async def create_shorturl(self, original_url: str) -> Tuple[bool, dict]:

@@ -2,16 +2,16 @@ from fastapi import APIRouter, Request
 from fastapi.responses import RedirectResponse
 from src.database.requests import main_methods, actions_methods
 from src.api.classes import ShortUrl_class, Authorize_Class
-
+from src.api.misc import Response
 
 
 router = APIRouter()
 
-@router.get("/health")
+@router.get("/health", status_code=200, responses=Response.Health_Response)
 async def health_check() -> dict:
     return {"status": "ok"}
 
-@router.post("/create", status_code=200)
+@router.post("/create", status_code=200, responses=Response.Create_Response)
 async def create_short_url(data: ShortUrl_class, req: Request) -> dict:
     methods = main_methods()
     isSuccess, OutcomingData = await methods.create_shorturl(original_url=data.original_url)
@@ -35,7 +35,7 @@ async def redirect_to_short_url(short_url):
 
     
 
-@router.post("/{short_url}/delete")
+@router.post("/{short_url}/delete", responses=Response.Delete_Response)
 async def delete_short_url(data: Authorize_Class, short_url: str) -> dict:
     methods = actions_methods()
     isSuccess, OutcomingData = await methods.delete_short_url(Short_Url=short_url, Control_Token=data.control_token)
@@ -44,7 +44,7 @@ async def delete_short_url(data: Authorize_Class, short_url: str) -> dict:
     else:
         return {"message": OutcomingData["error"]}
 
-@router.post("/{short_url}/regen")
+@router.post("/{short_url}/regen", responses=Response.Regenerate_Response)
 async def regenerate_short_url(data: Authorize_Class, short_url: str) -> dict:
     methods = actions_methods()
     isSuccess, OutcomingData = await methods.regenerate_short_url(Short_Url=short_url, Control_Token=data.control_token)

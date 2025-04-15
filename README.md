@@ -27,9 +27,9 @@ docker build -t urlshortener . | docker run -p 8000:8000 urlshortner
 
 # Roadmap:
 
-VERSION 1
+VERSION 1 - FINISHED
 ```
-- Add more functionality (in process) (V1)
+- Add more functionality (V1)
 - Finish the project (V1)
 ```
 

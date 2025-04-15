@@ -65,7 +65,7 @@ class actions_methods():
                     await session.execute(Update(ShortUrl).where(ShortUrl.short_code == Short_Url).values(short_code=short_code))
                     await session.commit()
                     return True, {
-                        "New_Short_Url": short_code
+                        "message": short_code
                         }
                 except Exception as e:
                     logger.error(e)

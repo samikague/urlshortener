@@ -49,6 +49,6 @@ async def regenerate_short_url(data: Authorize_Class, short_url: str) -> dict:
     methods = actions_methods()
     isSuccess, OutcomingData = await methods.regenerate_short_url(Short_Url=short_url, Control_Token=data.control_token)
     if isSuccess:
-        return {"message": OutcomingData["New_Short_Url"]}
+        return {"message": OutcomingData["message"]}
     else:
         return {"message": OutcomingData["error"]}

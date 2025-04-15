@@ -17,10 +17,16 @@ _ Alembic
 python3 main.py
 ```
 
-2. With docker(in project root-directory)
+2. With docker
 
 ```bash
-docker build -t samikague/urlshortener . | docker run -p 8000:8000 samikague/urlshortner
+docker pull samikague/urlshortener | docker run -p 8000:8000 samikague/urlshortner
+```
+
+Build from sources
+
+```bash
+docker build -t samikague/urlshortener | docker run -p 8000:8000 samikague/urlshortner
 ```
 
 

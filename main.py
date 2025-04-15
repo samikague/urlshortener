@@ -1,24 +1,24 @@
 from fastapi import FastAPI
 import uvicorn
 from loguru import logger
+from contextlib import asynccontextmanager
 
 from src.database.database import init_db
 from src.api.routes import router as api_router
 from fastapi.responses import RedirectResponse
 
-app = FastAPI()
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    await init_db()
+    yield
 
+app = FastAPI(lifespan=lifespan)
 
 app.include_router(api_router, prefix="/api")
-
-@app.on_event("startup")
-async def startup_event():
-    await init_db()
 
 @app.get("/")
 async def root():
     return RedirectResponse("/docs")
-
 
 if __name__ == "__main__":
     try:

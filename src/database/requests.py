@@ -41,7 +41,7 @@ class main_methods:
             
 
 class actions_methods():
-    async def delete_short_url(self, Short_Url: str, Control_Token: str):
+    async def delete_short_url(self, Short_Url: str, Control_Token: str) -> Tuple[bool, dict]:
         async with async_session() as session:
             ControlToken = await session.scalar(Select(ShortUrl.control_token).where(ShortUrl.short_code == Short_Url))
             if Control_Token == ControlToken:
@@ -55,7 +55,7 @@ class actions_methods():
             else:
                 return False, {"message": "Permission denied"}
             
-    async def regenerate_short_url(self, Short_Url: str, Control_Token: str):
+    async def regenerate_short_url(self, Short_Url: str, Control_Token: str) -> Tuple[bool, dict]:
         async with async_session() as session:
             ControlToken = await session.scalar(Select(ShortUrl.control_token).where(ShortUrl.short_code == Short_Url))
             prs = PyRandomString.RandomString()

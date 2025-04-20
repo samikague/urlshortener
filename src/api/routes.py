@@ -35,7 +35,7 @@ async def redirect_to_short_url(short_url):
 
     
 
-@router.post("/{short_url}/delete", responses=Response.Delete_Response)
+@router.delete("/{short_url}", responses=Response.Delete_Response)
 async def delete_short_url(data: Authorize_Class, short_url: str) -> dict:
     methods = actions_methods()
     isSuccess, OutcomingData = await methods.delete_short_url(Short_Url=short_url, Control_Token=data.control_token)
@@ -44,7 +44,7 @@ async def delete_short_url(data: Authorize_Class, short_url: str) -> dict:
     else:
         return {"message": OutcomingData["error"]}
 
-@router.post("/{short_url}/regen", responses=Response.Regenerate_Response)
+@router.put("/{short_url}", responses=Response.Regenerate_Response)
 async def regenerate_short_url(data: Authorize_Class, short_url: str) -> dict:
     methods = actions_methods()
     isSuccess, OutcomingData = await methods.regenerate_short_url(Short_Url=short_url, Control_Token=data.control_token)
